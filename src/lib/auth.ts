@@ -8,6 +8,16 @@ const client = new MongoClient(
 
 export const auth = betterAuth({
   database: mongodbAdapter(client.db()),
+  
+  // Fixes the CORS mismatch by automatically allowlisting Vercel domains
+  baseURL: {
+    allowedHosts: [
+      "localhost:3000",
+      "intern-portfolio.vercel.app",
+      "*.vercel.app" // Accepts all preview and branch deployments safely
+    ],
+  },
+
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
