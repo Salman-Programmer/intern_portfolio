@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #EFEFEA;
+  color: #111111;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #EFEFEA; }
+::-webkit-scrollbar-thumb { background: #CACAC4; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #A8D020; }
+
+/* ── Cards ── */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2DC;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+}
+.card-hover {
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1), 0 16px 48px rgba(0,0,0,0.08);
+  border-color: #CACAC4;
+}
+
+/* ── Inputs ── */
+.input-base {
+  @apply w-full bg-surface-2 border border-edge rounded-xl px-4 py-3
+         text-ink placeholder-ink-3 text-sm font-medium
+         transition-all duration-150
+         focus:outline-none focus:border-lime focus:ring-2 focus:ring-lime/30;
+}
+.input-base option { background: #fff; color: #111; }
+
+/* ── Buttons ── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-xl
+         transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed;
+  background: #111111;
+  color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  background: #222222;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn-lime {
+  @apply inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-xl
+         transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed;
+  background: #C8F135;
+  color: #111111;
+}
+.btn-lime:hover:not(:disabled) { background: #B8E020; }
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 font-medium text-sm px-4 py-2.5 rounded-xl
+         border border-edge text-ink-2 hover:text-ink hover:border-edge-2
+         bg-surface transition-all duration-150;
+}
+.btn-ghost {
+  @apply inline-flex items-center gap-1.5 font-medium text-sm px-3 py-2 rounded-lg
+         text-ink-3 hover:text-ink hover:bg-edge/60 transition-all duration-150;
+}
+
+/* ── Badge ── */
+.badge {
+  @apply inline-flex items-center text-2xs font-semibold px-2.5 py-0.5 rounded-full tracking-widest2 uppercase;
+}
+
+/* ── Tab bar ── */
+.tab-item {
+  @apply px-4 py-2 rounded-lg text-sm font-medium text-ink-2
+         hover:text-ink hover:bg-edge/60 transition-colors cursor-pointer whitespace-nowrap;
+}
+.tab-item.active {
+  @apply bg-ink text-white;
+}
