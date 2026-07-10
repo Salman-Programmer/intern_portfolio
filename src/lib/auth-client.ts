@@ -1,7 +1,8 @@
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-  baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  // Completely removing baseURL forces the client to use relative paths.
+  // Now, preview branches talk to preview backends, and production talks to production!
 });
 
 export const { signIn, signUp, signOut, useSession, getSession } = authClient;
